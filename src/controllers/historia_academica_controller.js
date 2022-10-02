@@ -1,16 +1,16 @@
 //retornar arrays, onjetos ya creados a las routes
 
 
-const docEstudiantes = ["1010063372","79691165","52319141"]
+const docEstudiantes = ["pacuna","rubiano","epa"]
 
-module.exports = function getHistoriaAcademica(doc_identidad) {
+module.exports = function getHistoriaAcademica(nombre_usuario) {
     
     //implementar busqueda por doc identidad
 
 
-    const documento_identidad = docEstudiantes.find(e => e == doc_identidad)
+    const nombreUsuario = docEstudiantes.find(e => e == nombre_usuario)
 
-    if(!documento_identidad){
+    if(!nombreUsuario){
         return null
     }
 
@@ -39,7 +39,7 @@ const as_2 = new Asignatura("0002","Algoritmos",3,"Fundamentacion Optativa","202
 
     const asignaturas_01 = [as_1,as_2]
 
-const historia_01 = new HistoriaAcademica(documento_identidad,"01","05","0.79",asignaturas_01)
+const historia_01 = new HistoriaAcademica("1010063372","01","05","0.79",asignaturas_01)
 
 
     return historia_01

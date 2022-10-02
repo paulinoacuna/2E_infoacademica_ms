@@ -3,10 +3,10 @@ const router = express.Router()
 const getHistoriaAcademica = require('../controllers/historia_academica_controller')
 
 
-router.get('/api/historiaAcademica/:documento_identidad',(request,response) => {
-    const documento_identidad = request.params.documento_identidad
+router.get('/historiaAcademica/:nombre_usuario',(request,response) => {
+    const nombre_usuario = request.params.nombre_usuario
     
-    const historiaAcademica = getHistoriaAcademica(documento_identidad)
+    const historiaAcademica = getHistoriaAcademica(nombre_usuario)
 
     if(historiaAcademica){
         response.json(historiaAcademica)
