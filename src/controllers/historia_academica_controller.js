@@ -5,7 +5,8 @@ const docEstudiantes = ["pacuna","rubiano","epa"]
 
 module.exports = function createHistoriaAcademica(historia) {
     
-    
+    console.log("entrada de historia")
+    console.log(historia)
     //implementar busqueda por doc identidad
 
 
