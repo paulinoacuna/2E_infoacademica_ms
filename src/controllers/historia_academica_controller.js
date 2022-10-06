@@ -30,7 +30,7 @@ module.exports = function createHistoriaAcademica(data) {
     });
 
     asignatures.forEach(asignatura => {
-        const x = new Asignatura(asignatura.id,"Calculo Diferencial",4,"Fundamentacion Obligatoria",asignatura.term,true,calificaciones)
+        const x = new Asignatura(asignatura.id,"Calculo Diferencial",4,"Fundamentacion Obligatoria",asignatura.term,asignatura.consolidated,calificaciones)
         asignaturas.push(x)
      });
 
