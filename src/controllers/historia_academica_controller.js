@@ -11,6 +11,7 @@ module.exports = function createHistoriaAcademica(data) {
     const Calificacion = require('../models/calificacion_model')
     const HistoriaAcademica = require('../models/historia_academica_model')
 
+    console.log(data)
   
     const historiaAcademica = data.history
 
