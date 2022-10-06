@@ -5,10 +5,17 @@ const semestreActual = "2022-1"
 //read only
 module.exports = class HistoriaAcademica {
     constructor(documento_identidad,id_historia,id_programa,porcentaje_avance,asignaturas){
+        
+        console.log(documento_identidad)
+        console.log(id_historia)
+        console.log(id_programa)
+        console.log(porcentaje_avance)
+
         this._documento_identidad = documento_identidad //string
         this._id_historia = id_historia //number
         this._id_programa = id_programa //number
         this._porcentaje_avance = porcentaje_avance //number
+
         this._asignaturas = asignaturas //Asignatura ,array
 
         this._papa = this.papa

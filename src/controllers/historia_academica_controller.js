@@ -13,7 +13,7 @@ module.exports = function createHistoriaAcademica(data) {
 
     console.log(data)
   
-    const historiaAcademica = data.query.history
+    const historiaAcademica = data.query.history[0]
 
 
     const asignatures = data.query.asignatures
