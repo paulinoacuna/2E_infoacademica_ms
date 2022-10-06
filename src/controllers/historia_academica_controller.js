@@ -3,23 +3,28 @@
 
 const docEstudiantes = ["pacuna","rubiano","epa"]
 
-module.exports = function getHistoriaAcademica(nombre_usuario) {
+module.exports = function createHistoriaAcademica(historia) {
+    
     
     //implementar busqueda por doc identidad
 
 
-    const nombreUsuario = docEstudiantes.find(e => e == nombre_usuario)
+    // const nombreUsuario = docEstudiantes.find(e => e == nombre_usuario)
 
-    if(!nombreUsuario){
-        return null
-    }
+    // if(!nombreUsuario){
+    //     return null
+    // }
+
+
+    //history: jsonHistory,
+    //asignatures: jsonAsignatures,
+    //grades: jsonGrades
 
 
 //obtener clases
 const Asignatura = require('../models/asignatura_model')
 const Calificacion = require('../models/calificacion_model')
 const HistoriaAcademica = require('../models/historia_academica_model')
-
 
 
 const cal_0001_1 = new Calificacion("Parcial 1",0.30,3.1)

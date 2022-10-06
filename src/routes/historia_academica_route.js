@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const getHistoriaAcademica = require('../controllers/historia_academica_controller')
 
+const createHistoriaAcademica = require('../controllers/historia_academica_controller')
+
 
 router.get('/historiaAcademica/:nombre_usuario',(request,response) => {
     const nombre_usuario = request.params.nombre_usuario
@@ -14,6 +16,19 @@ router.get('/historiaAcademica/:nombre_usuario',(request,response) => {
         response.status(404).end()
     }
     console.log(historiaAcademica)
+})
+
+router.post('/api/historiaAcademica/:historia_academica',(request,response) => {
+    const historiaAcademica = request.params.historia_academica
+    
+    const historiaActualizada = createHistoriaAcademica(historiaAcademica)
+
+    if(historiaActualizada){
+        response.json(historiaActualizada)
+    }else{
+        response.status(404).end()
+    }
+    console.log(historiaActualizada)
 })
 
 
