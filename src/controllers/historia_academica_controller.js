@@ -1,52 +1,45 @@
 //retornar arrays, onjetos ya creados a las routes
 
 
-const docEstudiantes = ["pacuna","rubiano","epa"]
-
-module.exports = function createHistoriaAcademica(historia) {
-    
-    console.log("entrada de historia")
-    console.log(historia)
-    //implementar busqueda por doc identidad
+// const docEstudiantes = ["pacuna","rubiano","epa"]
 
 
-    // const nombreUsuario = docEstudiantes.find(e => e == nombre_usuario)
+module.exports = function createHistoriaAcademica(data) {
 
-    // if(!nombreUsuario){
-    //     return null
-    // }
+    //obtener clases
+    const Asignatura = require('../models/asignatura_model')
+    const Calificacion = require('../models/calificacion_model')
+    const HistoriaAcademica = require('../models/historia_academica_model')
 
+  
+    const historiaAcademica = data.history
+
+
+    const asignatures = data.asignatures
+    const asignaturas = []
+
+
+    const grades = data.grades //array de grades
+    const calificaciones = []
+
+
+    grades.forEach(grade => {
+        const x = new Calificacion(grade.name,grade.percentage,grade.values)
+        calificaciones.push(x)
+
+    });
+
+    asignatures.forEach(asignatura => {
+        const x = new Asignatura(asignatura.id,"Calculo Diferencial",4,"Fundamentacion Obligatoria",asignatura.term,asignatura.consolidated,calificaciones)
+        asignaturas.push(x)
+     });
 
     //history: jsonHistory,
     //asignatures: jsonAsignatures,
     //grades: jsonGrades
 
 
-//obtener clases
-const Asignatura = require('../models/asignatura_model')
-const Calificacion = require('../models/calificacion_model')
-const HistoriaAcademica = require('../models/historia_academica_model')
-
-
-const cal_0001_1 = new Calificacion("Parcial 1",0.30,3.1)
-const cal_0001_2 = new Calificacion("Parcial 2",0.30,4.2)
-const cal_0001_3 = new Calificacion("Parcial 3",0.40,4.8)
-
-    const cals_0001 = [cal_0001_1,cal_0001_2,cal_0001_3]
-
-const cal_0002_1 = new Calificacion("Parcial 1",0.50,1.5)
-const cal_0002_2 = new Calificacion("Parcial 2",0.50,4.0)
-    
-    const cals_0002 = [cal_0002_1,cal_0002_2]
-
-
-const as_1 = new Asignatura("0001","Calculo Diferencial",4,"Fundamentacion Obligatoria","2022-2",true,cals_0001)
-const as_2 = new Asignatura("0002","Algoritmos",3,"Fundamentacion Optativa","2022-1",false,cals_0002)
-
-    const asignaturas_01 = [as_1,as_2]
-
-const historia_01 = new HistoriaAcademica("1010063372","01","05","0.79",asignaturas_01)
-
+const historia_01 = new HistoriaAcademica(historiaAcademica.id_student,historiaAcademica.id,historiaAcademica.id_program,historiaAcademica.percentage_adv,asignaturas)
 
     return historia_01
 }
