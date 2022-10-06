@@ -14,7 +14,6 @@ router.post('/api/historiaAcademica/',(request,response) => {
     const historia = createHistoriaAcademica(data)
 
     if(historia){
-        console.log("respuesta")
         response.json(historia)
     }else{
         response.status(404).end()

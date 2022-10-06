@@ -1,6 +1,6 @@
 // import api_gateway from "../api_gateway/api_gateway.js"
 
-const semestreActual = "2022-2"
+const semestreActual = "2022-1"
 
 //read only
 module.exports = class HistoriaAcademica {
@@ -70,7 +70,6 @@ module.exports = class HistoriaAcademica {
         });
 
         const total = suma/totalCreditos
-
         return Number(total.toFixed(2))
 
     }
@@ -79,7 +78,10 @@ module.exports = class HistoriaAcademica {
         let suma = 0
         let totalCreditos = 0
 
+        
+
         this.asignaturas.forEach(asignatura => {
+
             if(asignatura.periodo == this.semestreActual && asignatura.esConsolidada == true){
                 //hace parte del semestre actual y ya tiene definitiva
                 suma = suma + (asignatura.definitiva * asignatura.creditos)
