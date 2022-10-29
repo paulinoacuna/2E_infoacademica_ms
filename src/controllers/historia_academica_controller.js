@@ -16,22 +16,39 @@ module.exports = function createHistoriaAcademica(data) {
     const historiaAcademica = data.query.history[0]
 
 
-    const asignatures = data.query.asignatures
+    const asignatures = data.query.course
     const asignaturas = []
 
 
-    const grades = data.query.grades //array de grades
+    const grades = data.query.grade //array de grades
     const calificaciones = []
 
 
     grades.forEach(grade => {
-        const x = new Calificacion(grade.name,grade.percentage,grade.values)
+        const x = new Calificacion(grade.name,grade.percentage,grade.grades)
         calificaciones.push(x)
 
     });
 
-    asignatures.forEach(asignatura => {
-        const x = new Asignatura(asignatura.id,"Calculo Diferencial",4,"Fundamentacion Obligatoria",asignatura.term,asignatura.consolidated,calificaciones)
+    const materias = ["Calculo Diferencial","Arquitectura de Software","Computacion Visual","Matematicas Discretas","Ingenieria Economica","Ingenieria de Software"]
+    const tipo = ["Fundamentacion Obligatoria","Fundamentacion Optativa","Disciplinar Obligatoria","Disciplinar Optativa"]
+
+    let i = 0;
+    let j = 0;
+
+    asignatures.forEach(course => {
+        const x = new Asignatura(course.id,materias[i],4,tipo[j],course.term,course.consolidated,calificaciones)
+        if(i <= 5){
+            i++
+        }else{
+            i = 0
+        }
+        if(j <= 3){
+            j++
+        }else{
+            j = 0
+        }
+        
         asignaturas.push(x)
      });
 
