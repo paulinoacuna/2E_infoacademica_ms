@@ -7,7 +7,7 @@ const routes = require('./src/routes/historia_academica_route')
 app.use(routes)
 
 
-const PORT = 3001
+const PORT = 8080
 app.listen(PORT,() =>{
     console.log(`Server running on port ${PORT}`)
 })

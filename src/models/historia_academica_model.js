@@ -1,15 +1,11 @@
 // import api_gateway from "../api_gateway/api_gateway.js"
 
-const semestreActual = "2022-1"
+const semestreActual = "2022-2"
 
 //read only
 module.exports = class HistoriaAcademica {
     constructor(documento_identidad,id_historia,id_programa,porcentaje_avance,asignaturas){
-        
-        console.log(documento_identidad)
-        console.log(id_historia)
-        console.log(id_programa)
-        console.log(porcentaje_avance)
+
 
         this._documento_identidad = documento_identidad //string
         this._id_historia = id_historia //number

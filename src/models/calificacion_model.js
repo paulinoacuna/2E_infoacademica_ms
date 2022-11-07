@@ -14,7 +14,7 @@ module.exports = class Calificacion {
     }
 
     get porcentaje(){
-            return this._porcentaje/100
+            return this._porcentaje
     }
 
     get nota(){
