@@ -49,13 +49,6 @@ get definitiva(){
     let suma = 0
 
     this.calificaciones.forEach(calificacion => {
-
-
-        console.log(calificacion.porcentaje)
-        console.log(calificacion.nota)
-
-
-
         suma = suma + (calificacion.porcentaje * calificacion.nota)       
     });
 

@@ -11,11 +11,11 @@ module.exports = function createHistoriaAcademica(data) {
     const Calificacion = require('../models/calificacion_model')
     const HistoriaAcademica = require('../models/historia_academica_model')
 
-    console.log(data)
+    // console.log(data)
   
     const historiaAcademica = data.query.history[0] //object
 
-    console.log(data.query.courses)
+    // console.log(data.query.courses)
     const cursos = data.query.courses //array
     const cursosResponse = []
 
@@ -23,13 +23,21 @@ module.exports = function createHistoriaAcademica(data) {
     const calificaciones = data.query.grades //array de grades
     const calificacionesResponse = []
 
+        //[[{},{},{}],[{},{}]]
 
     const idCalificaciones = []
     const todasCalificaciones = []
 
 
+    console.log(calificaciones)
+
     //llenar idCalificaciones
-    calificaciones.forEach(calificacion => {
+    calificaciones.forEach(lista => {
+        lista.forEach((calificacion) =>{
+            // console.log(calificacion)
+
+            
+
         const value = new Calificacion(calificacion.name,calificacion.percentage,calificacion.grades)
 
         const idIndex = idCalificaciones.indexOf(calificacion.id_course)
@@ -49,6 +57,7 @@ module.exports = function createHistoriaAcademica(data) {
         
         }
 
+        })
     });
 
 
@@ -58,8 +67,11 @@ module.exports = function createHistoriaAcademica(data) {
 
     cursos.forEach(curso =>{
 
+        console.log(idCalificaciones)
         const idIndex = idCalificaciones.indexOf(curso.id)
         let misCalificaciones = []
+
+        // console.log(idIndex)
         
         if(idIndex !== -1){
             misCalificaciones = [...todasCalificaciones[idIndex]]
