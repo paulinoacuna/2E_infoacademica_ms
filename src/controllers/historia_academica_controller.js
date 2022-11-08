@@ -15,11 +15,12 @@ module.exports = function createHistoriaAcademica(data) {
   
     const historiaAcademica = data.query.history[0] //object
 
-    const cursos = data.query.course //array
+    console.log(data.query.courses)
+    const cursos = data.query.courses //array
     const cursosResponse = []
 
 
-    const calificaciones = data.query.grade //array de grades
+    const calificaciones = data.query.grades //array de grades
     const calificacionesResponse = []
 
 
