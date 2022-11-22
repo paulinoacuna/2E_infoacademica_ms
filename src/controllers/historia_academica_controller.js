@@ -24,12 +24,13 @@ module.exports = function createHistoriaAcademica(data) {
     const calificacionesResponse = []
 
         //[[{},{},{}],[{},{}]]
+        // console.log(calificaciones)
 
     const idCalificaciones = []
     const todasCalificaciones = []
 
 
-    console.log(calificaciones)
+    
 
     //llenar idCalificaciones
     calificaciones.forEach(lista => {
@@ -66,9 +67,10 @@ module.exports = function createHistoriaAcademica(data) {
 
 
     cursos.forEach(curso =>{
+        // console.log(curso.id)
 
         console.log(idCalificaciones)
-        const idIndex = idCalificaciones.indexOf(curso.id)
+        const idIndex = idCalificaciones.indexOf(parseInt(curso.id))
         let misCalificaciones = []
 
         // console.log(idIndex)
@@ -97,8 +99,10 @@ module.exports = function createHistoriaAcademica(data) {
 // console.log(idCalificaciones)
 // console.log(todasCalificaciones)
 
- const historiaAcademicaResponse = new HistoriaAcademica(historiaAcademica.id_student,historiaAcademica.id,historiaAcademica.id_program,historiaAcademica.percentage_adv,cursosResponse)
-        
+const historiaAcademicaResponse = new HistoriaAcademica(historiaAcademica.id_student,historiaAcademica.id,historiaAcademica.id_program,historiaAcademica.percentage_adv,cursosResponse)
+
+// castear de jsona nota
+    console.log(historiaAcademicaResponse._asignaturas[0]._calificaciones[0]._nota)
 
 
     return historiaAcademicaResponse

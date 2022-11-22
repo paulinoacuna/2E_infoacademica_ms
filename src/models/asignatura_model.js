@@ -48,6 +48,10 @@ get calificaciones(){
 get definitiva(){
     let suma = 0
 
+    // "{'jlizarazoa':5,'jumorap':4.5, 'juan': 3}"
+
+    
+
     this.calificaciones.forEach(calificacion => {
         suma = suma + (calificacion.porcentaje * calificacion.nota)       
     });

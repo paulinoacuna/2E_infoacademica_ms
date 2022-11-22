@@ -6,7 +6,7 @@ module.exports = class Calificacion {
     constructor(nombre,porcentaje,nota){
         this._nombre = nombre //string
         this._porcentaje = porcentaje //number
-        this._nota = nota //number
+        this._nota = nota;  //object
     }
 
     get nombre(){
@@ -18,7 +18,18 @@ module.exports = class Calificacion {
     }
 
     get nota(){
-        return this._nota
+        // {'jlizarazoa': 5,
+        // 'jumorap': 4.5,
+        //  'juan': 3
+        // }
+
+        // this.nota.map()
+
+        // console.log(this.nota)
+        // JSON.parse(nota)
+        // var value = this.nota.juan
+
+        return null
     }
 
 }
