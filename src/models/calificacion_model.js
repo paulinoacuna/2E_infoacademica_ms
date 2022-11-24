@@ -1,5 +1,3 @@
-// import api_gateway from "../api_gateway/api_gateway.js"
-
 //read only
 
 module.exports = class Calificacion {
@@ -23,13 +21,7 @@ module.exports = class Calificacion {
         //  'juan': 3
         // }
 
-        // this.nota.map()
-
-        // console.log(this.nota)
-        // JSON.parse(nota)
-        // var value = this.nota.juan
-
-        return null
+        return this._nota
     }
 
 }

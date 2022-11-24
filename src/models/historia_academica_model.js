@@ -1,12 +1,8 @@
-// import api_gateway from "../api_gateway/api_gateway.js"
-
 const semestreActual = "2022-2"
 
 //read only
 module.exports = class HistoriaAcademica {
     constructor(documento_identidad,id_historia,id_programa,porcentaje_avance,asignaturas){
-
-
         this._documento_identidad = documento_identidad //string
         this._id_historia = id_historia //number
         this._id_programa = id_programa //number
@@ -20,7 +16,6 @@ module.exports = class HistoriaAcademica {
         this._semestreActual = this.semestreActual
         this._asignaturasInscritas = this.asignaturasInscritas //array
     }
-
 
     get documento_identidad(){
         return this._documento_identidad
@@ -60,11 +55,11 @@ module.exports = class HistoriaAcademica {
         let totalCreditos = 0
 
         this.asignaturas.forEach(asignatura => {
-            if(asignatura.esAprobada == true){
+            if (asignatura.esAprobada === true) {
                 //asignatura aprobada
                 suma = suma + (asignatura.definitiva * asignatura.creditos)
                 totalCreditos = totalCreditos + asignatura.creditos
-            }else{
+            } else {
                 //asignatura perdida
             }
 
@@ -85,7 +80,7 @@ module.exports = class HistoriaAcademica {
 
         this.asignaturas.forEach(asignatura => {
 
-            if(asignatura.periodo == this.semestreActual && asignatura.esConsolidada == true){
+            if(asignatura.periodo === this.semestreActual && asignatura.esConsolidada === true){
                 //hace parte del semestre actual y ya tiene definitiva
                 suma = suma + (asignatura.definitiva * asignatura.creditos)
                 totalCreditos = totalCreditos + asignatura.creditos
@@ -95,9 +90,9 @@ module.exports = class HistoriaAcademica {
             }            
         });
 
-        if(suma == 0 || totalCreditos == 0 ){
+        if(suma === 0 || totalCreditos === 0 ){
             return 0
-        }else{
+        } else {
             const total = suma/totalCreditos
             return Number(total.toFixed(2))
         }
@@ -111,9 +106,8 @@ module.exports = class HistoriaAcademica {
 
     get asignaturasInscritas(){
         this._asignaturasInscritas = []
-
-        this.asignaturas.forEach( asignatura =>{
-            if(asignatura.periodo == this.semestreActual){
+        this.asignaturas.forEach( asignatura => {
+            if(asignatura.periodo === this.semestreActual){
                 this._asignaturasInscritas.push(asignatura)
             }
         })
@@ -121,14 +115,9 @@ module.exports = class HistoriaAcademica {
         return this._asignaturasInscritas
     }
 
-    resumenCreditos(){   
+    resumenCreditos() {
         //exigidos,cursados,inscritos,faltantes
-
-
-
     }
-
-
 }
 
 
