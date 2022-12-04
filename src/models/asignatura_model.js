@@ -6,8 +6,9 @@
 //read only
 
 module.exports = class Asignatura {
- constructor(codigo,nombre,creditos,tipo,periodo,esConsolidada,calificaciones){
+ constructor(codigo,id_asignature,nombre,creditos,tipo,periodo,esConsolidada,calificaciones){
     this._codigo = codigo //number
+    this._id_asignature = id_asignature
     this._nombre = nombre
     this._creditos = creditos //number+
     this._tipo = tipo //string
@@ -22,6 +23,10 @@ module.exports = class Asignatura {
 
 get codigo(){
     return this._codigo
+}
+
+get id_asignature(){
+    return this._id_asignature
 }
 
 get creditos(){

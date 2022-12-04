@@ -56,7 +56,7 @@ module.exports = function createHistoriaAcademica(data) {
         }else{
             console.log("Asignatura no tiene calificaciones")
         }
-        const value = new Asignatura(curso.id,curso.nombre_asignatura,4, curso.nombre_tipologia,curso.term,curso.consolidated,misCalificaciones)
+        const value = new Asignatura(curso.id,curso.id_asignature,curso.nombre_asignatura,4, curso.nombre_tipologia,curso.term,curso.consolidated,misCalificaciones)
         cursosResponse.push(value)
     });
 
@@ -80,6 +80,7 @@ _semestreActual
 _pappi
 _asignaturasInscritas {
   _codigo
+  _id_asignature
   _nombre
   _creditos
   _tipo
@@ -90,6 +91,7 @@ _asignaturasInscritas {
 }
 _asignaturas{
   _codigo
+  _id_asignature
 _nombre
 _creditos
 _tipo
